@@ -1,4 +1,6 @@
 # hackaton
+## Hypothesis:
+  Quarkus Java and GoLang are made for cloud native devlopment and we would like to validate claims that they can beat traditional Java on speed of development and application run-time permance
 ## Prerequisite:
   * Docker on Linux and Docker Desktop on Windows or MAC
   * Min 8GB RAM
