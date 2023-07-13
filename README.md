@@ -1,7 +1,6 @@
 # hackaton
 ## Prerequisite:
-  * Docker or Podman on Linux and Docker Desktop on Windows
-    * Note in rest of this Readme will reffer to docker but there are equivalent podman commands
+  * Docker on Linux and Docker Desktop on Windows or MAC
   * Min 8GB RAM
   * Visual Code
 ## Repo content for PAL hackaton
