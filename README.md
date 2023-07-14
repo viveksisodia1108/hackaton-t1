@@ -17,21 +17,29 @@
 
   Assistance for container creation will be available on the day by support team \
 
-  ## Postgres DB schema
-CREATE TABLE transactions (\
+  ## Postgres DB Information
+  
+CREATE TABLE transaction.transactions (\
 	tx_id varchar(40) primary key,  /* transaction id*/ \
-	acc_id varchar(20) not null, /* account id*/ \
+	acc_id varchar(40) not null, /* account id*/ \
 	tx_ts timestamp not null, /* timestamp */ \
-	status varchar(10) not null, /* can be ["pending","rejected","complete"] */ \
+	status varchar(40) not null, /* can be ["pending","rejected","complete"] */ \
 	amount int not null, /* integer - need divide by 100 for pennies*/ \
-	MerchantName text,  \
-	Merchat_id varchar(13), \
-	tx_type varchar(10), /* ["online","atm","pos","dd","transfer"] */ \
+	merchantname text,  \
+	merchant_id varchar(40), \
+	tx_type varchar(40), /* ["online","atm","pos","dd","transfer"] */ \
 	tx_details text);  /* random text*/ \
 
 Example of rows: \
 ed9b9bcf-731d-460d-add5-ea60fde769da|ADUG99161510903217|2023-01-27 09:27:46|pending|6792|Avery, Middleton and Foster|501-90443-X|online|Old great notice. \
 6f66d3d1-25fb-432e-842e-b349ac1dde63|FBTV47112201868483|2023-02-03 17:34:46|rejected|8221|Arnold, Villa and Johnson|616-57004-3|transfer|Fire town worker. \
+
+### Connection Details:
+DB_Host ='pgdb'
+DB Port =5432
+DB User ='postgres'
+DB Password ='postgres'
+DB Database ='workshop'
 
 ## Rest API
 GET method for 
