@@ -11,11 +11,11 @@
   Create new folder and copy yaml file there, cd into the folder and run <docker compose -d> \
   Once images downoalded and started you can run bash shell inside by runing <docker exec -ti id-of-the-container bash>\
 
-  .zip file contains Quarkus scafolding project (unzip it in dev container) and cd inside folder adn you can run <mvn compile quarkus:dev> \
+  .zip file contains Quarkus scafolding project (unzip it in dev container) and cd inside folder adn you can run <mvn compile quarkus:dev> 
 
   Visual Code downalod Remote Development extension to connect to dev container and dev code inside container \
 
-  Assistance for container creation will be available on the day by support team \
+  Assistance for container creation will be available on the day by support team 
 
   ## Postgres DB Information
   
@@ -28,18 +28,18 @@ CREATE TABLE transaction.transactions (\
 	merchantname text,  \
 	merchant_id varchar(40), \
 	tx_type varchar(40), /* ["online","atm","pos","dd","transfer"] */ \
-	tx_details text);  /* random text*/ \
+	tx_details text);  /* random text*/ 
 
 Example of rows: \
 ed9b9bcf-731d-460d-add5-ea60fde769da|ADUG99161510903217|2023-01-27 09:27:46|pending|6792|Avery, Middleton and Foster|501-90443-X|online|Old great notice. \
-6f66d3d1-25fb-432e-842e-b349ac1dde63|FBTV47112201868483|2023-02-03 17:34:46|rejected|8221|Arnold, Villa and Johnson|616-57004-3|transfer|Fire town worker. \
+6f66d3d1-25fb-432e-842e-b349ac1dde63|FBTV47112201868483|2023-02-03 17:34:46|rejected|8221|Arnold, Villa and Johnson|616-57004-3|transfer|Fire town worker. 
 
 ### Connection Details:
-DB_Host ='pgdb'
-DB Port =5432
-DB User ='postgres'
-DB Password ='postgres'
-DB Database ='workshop'
+DB_Host ='pgdb' \
+DB Port =5432 \
+DB User ='postgres' \
+DB Password ='postgres' \
+DB Database ='workshop' 
 
 ## Rest API
 GET method for 
