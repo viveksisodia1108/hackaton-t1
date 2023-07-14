@@ -54,7 +54,7 @@ http://{hostname}:{port}/**transactions/account/{acc_id}?fromDateTime="yyyy-mm-d
 returns all tx for account from datetime to "now", if added optional status param (e.g. &status="complete") then filter also by status  
 
 
-http://{hostname}:{port}/**transactions/account/{acc_id}?fromDateTime="yyyy-mm-dd hh:mm:ss"&toDateTime="yyyy-mm-dd hh:mm:ss"**
+http://{hostname}:{port}/**transactions/account/{acc_id}?fromDateTime="yyyy-mm-dd hh:mm:ss"&toDateTime="yyyy-mm-dd hh:mm:ss"** \
 returns all tx for account from datetime to datetime, if added optional status param (e.g. &status="complete") then filter also by status 
 
 
