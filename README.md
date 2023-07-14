@@ -34,6 +34,29 @@ ed9b9bcf-731d-460d-add5-ea60fde769da|ADUG99161510903217|2023-01-27 09:27:46|pend
 6f66d3d1-25fb-432e-842e-b349ac1dde63|FBTV47112201868483|2023-02-03 17:34:46|rejected|8221|Arnold, Villa and Johnson|616-57004-3|transfer|Fire town worker. \
 
 ## Rest API
+GET method for 
+
+### Must have:
+(note happy to truncate to max 50 rows) \
+http://{hostname}:{port}/**transactions/account/{acc_id}** \
+returns all tx for account, if added optional status param (e.g. &status="complete") then filter also by status 
+
+
+http://{hostname}:{port}/**transactions/account/{acc_id}?fromDateTime="yyyy-mm-dd hh:mm:ss"** \
+returns all tx for account from datetime to "now", if added optional status param (e.g. &status="complete") then filter also by status  
+
+
+http://{hostname}:{port}/**transactions/account/{acc_id}?fromDateTime="yyyy-mm-dd hh:mm:ss"&toDateTime="yyyy-mm-dd hh:mm:ss"**
+returns all tx for account from datetime to datetime, if added optional status param (e.g. &status="complete") then filter also by status 
+
+
+http://{hostname}:{port}/**transactions/{tx_id}** \
+return single transaction
+
+
+### Should have:
+(on purpose less defined - leave to you how to do it) \
+Pagination for calls returning max "pageSize" rows with query "pageSize" param and allows "page" inout param to select which "startPage" to show arbirtrary page 
 
 ## Goal
 Docker image pushed in dockerhub with your application implementing Rest API
