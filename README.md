@@ -40,7 +40,7 @@ DB Port =5432 \
 DB User ='postgres' \
 DB Password ='postgres' \
 DB Database ='workshop' \
-DB Schema = 'transaction'   (select should look like ..from transaction.transaction or SET search_path TO  transaction; to select schema)
+DB Schema = 'transaction'   (select should look like ..from transaction.transactions or SET search_path TO  transaction; to select schema)
 
 ## Rest API
 GET method for 
