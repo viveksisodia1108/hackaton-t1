@@ -9,11 +9,6 @@ services:
     ports:
       - 5432:5432
     container_name: pgdb
-  adminer:
-    image: adminer:latest
-    restart: always
-    ports:
-      - 8080:8080
   developer:
     image: dockerdeepak/workshop:jdk11_mvn_go
     restart: always
@@ -21,6 +16,6 @@ services:
       - 9080:9090
       - 9443:9443
       - 7777:7777
-      - 9090:8080
+      - 8080:8080
       - 5005:5005
     container_name: myapp
