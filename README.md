@@ -11,7 +11,7 @@
   Create new folder and copy yaml file there, cd into the folder and run <docker-compose up -d>\
   Once images downoalded and started you can run bash shell inside by runing <docker exec -ti id-of-the-container bash>\
 
-  .zip file contains Quarkus scafolding project (unzip it in dev container) and cd inside folder adn you can run <mvn compile quarkus:dev> 
+  .tar.gz file contains Quarkus scafolding project (unzip it in dev container) and cd inside folder adn you can run <mvn compile quarkus:dev> 
 
   Visual Code downalod Remote Development extension to connect to dev container and dev code inside container \
 
