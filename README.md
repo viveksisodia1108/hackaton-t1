@@ -43,7 +43,7 @@ DB Database ='workshop' \
 DB Schema = 'transaction'   (select should look like ..from transaction.transactions or SET search_path TO  transaction; to select schema)
 
 ## Rest API
-GET method for 
+All GET methods and returning JSON content type 
 
 ### Must have:
 (note happy to truncate to max 50 rows) \
