@@ -3,5 +3,6 @@ FROM dockerdeepak/workshop:golangbase
 WORKDIR /app
 
 COPY . .
-RUN go mod download && go mod tidy
-ENTRYPOINT ["go", "run", "cmd/main.go", "-b", "0.0.0.0"]
+RUN go mod download && cd cmd && CGO_ENABLED=0 GOOS=linux go build -o /transactions
+EXPOSE 3000
+CMD [ "/transactions" ]
