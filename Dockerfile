@@ -1,7 +1,7 @@
-FROM golang:1.20
+FROM dockerdeepak/workshop:golangbase
 
-WORKDIR /usr/src/app
-
+WORKDIR /app
 
 COPY . .
-RUN go mod tidy
+RUN ls && go mod download && go mod tidy
+ENTRYPOINT ["go", "run", "cmd/main.go", "-b", "0.0.0.0"]
