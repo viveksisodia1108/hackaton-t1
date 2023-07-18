@@ -10,7 +10,7 @@ services:
       - 5432:5432
     container_name: db
   developer:
-    image: gotest2
+    image: gofibergorm:latest
     restart: always
     env_file:
       - .env

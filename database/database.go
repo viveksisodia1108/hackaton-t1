@@ -26,7 +26,7 @@ func ConnectDb() {
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
+		Logger: logger.Default.LogMode(logger.Silent),
 		NamingStrategy: schema.NamingStrategy{
 			TablePrefix:   os.Getenv("DB_SCHEMA"),
 			SingularTable: false,
@@ -39,7 +39,7 @@ func ConnectDb() {
 	}
 
 	log.Println("connected")
-	db.Logger = logger.Default.LogMode(logger.Info)
+	db.Logger = logger.Default.LogMode(logger.Silent)
 
 	//log.Println("running migrations")
 	//db.AutoMigrate(&models.Fact{}, &models.Transactions{})
