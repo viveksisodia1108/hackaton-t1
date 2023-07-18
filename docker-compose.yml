@@ -1,27 +1,19 @@
+---
 version: "3.3"
-
 services:
-  web:
-    build: .
+  db:
+    image: dockerdeepak/workshop:pgdb_v1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    container_name: db
+  developer:
+    image: gotest2
+    restart: always
     env_file:
       - .env
     ports:
-      - "3000:3000"
-    volumes:
-      - .:/usr/src/app
-    command: go run cmd/main.go -b 0.0.0.0
+      - 3000:3000
     container_name: goapp
-  db:
-    image: dockerdeepak/workshop:pgdb
-    restart: always
-    environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
-    ports:
-      - 5432:5432
-    volumes:
-      - postgres-db:/var/lib/postgresql/data
-    container_name: pgdbase
-volumes:
-  postgres-db: 
