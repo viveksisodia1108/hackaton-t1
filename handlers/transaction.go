@@ -2,15 +2,16 @@ package handlers
 
 import (
 	"fmt"
+	"net/http"
 	"strconv"
 	"time"
 
-	"github.com/gofiber/fiber/v2"
-	"github.com/rcherin/hackaton/database"
-	"github.com/rcherin/hackaton/models"
+	"github.com/gin-gonic/gin"
+	"github.com/viveksisodia1108/gogingorm/database"
+	"github.com/viveksisodia1108/gogingorm/models"
 )
 
-func ListTrasactionsByAccountAndDate(c *fiber.Ctx) error {
+func ListTrasactionsByAccountAndDate(c *gin.Context) {
 	transactions := []models.Transactions{}
 	currentTime := time.Now()
 
@@ -44,14 +45,14 @@ func ListTrasactionsByAccountAndDate(c *fiber.Ctx) error {
 	pageStr := c.Query("page")
 	page, _ := strconv.Atoi(pageStr)
 	offset := (page - 1) * pageSize
-	database.DB.Db.Unscoped().Where(&models.Transactions{Acc_id: c.Params("acc_id"), Status: c.Query("status")}).Where(dateTimeCondition, fromDateTime, toDateTime).Limit(pageSize).Offset(offset).Find(&transactions)
+	database.DB.Db.Unscoped().Where(&models.Transactions{Acc_id: c.Param("acc_id"), Status: c.Query("status")}).Where(dateTimeCondition, fromDateTime, toDateTime).Limit(pageSize).Offset(offset).Find(&transactions)
 
-	return c.Status(200).JSON(transactions)
+	c.IndentedJSON(http.StatusOK, transactions)
 }
 
-func ListTrasactionsById(c *fiber.Ctx) error {
+func ListTrasactionsById(c *gin.Context) {
 	transactions := []models.Transactions{}
-	database.DB.Db.Unscoped().Where(&models.Transactions{Tx_id: c.Params("tx_id")}).Find(&transactions)
+	database.DB.Db.Unscoped().Where(&models.Transactions{Tx_id: c.Param("tx_id")}).Find(&transactions)
 
-	return c.Status(200).JSON(transactions)
+	c.IndentedJSON(http.StatusOK, transactions)
 }

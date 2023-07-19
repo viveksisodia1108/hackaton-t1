@@ -10,7 +10,7 @@ services:
       - 5432:5432
     container_name: db
   developer:
-    image: viveksisodia1108/gofibergorm:v1.0
+    image: viveksisodia1108/gogingorm:v1.0
     restart: always
     environment:
       DB_USER: postgres
