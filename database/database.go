@@ -19,17 +19,18 @@ var DB Dbinstance
 
 func ConnectDb() {
 	dsn := fmt.Sprintf(
-		"host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=UTC",
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC",
 		os.Getenv("DB_HOST"),
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_NAME"),
+		os.Getenv("DB_PORT"),
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Silent),
 		NamingStrategy: schema.NamingStrategy{
-			TablePrefix:   os.Getenv("DB_SCHEMA"),
+			TablePrefix:   os.Getenv("DB_SCHEMA") + ".",
 			SingularTable: false,
 		},
 	})
@@ -41,9 +42,6 @@ func ConnectDb() {
 
 	log.Println("connected")
 	db.Logger = logger.Default.LogMode(logger.Silent)
-
-	//log.Println("running migrations")
-	//db.AutoMigrate(&models.Fact{}, &models.Transactions{})
 
 	DB = Dbinstance{
 		Db: db,

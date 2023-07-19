@@ -10,10 +10,15 @@ services:
       - 5432:5432
     container_name: db
   developer:
-    image: gofibergorm:latest
+    image: viveksisodia1108/gofibergorm:v1.0
     restart: always
-    env_file:
-      - .env
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: workshop
+      DB_SCHEMA: transaction
+      DB_HOST: db
+      DB_PORT: 5432
     ports:
       - 3000:3000
     container_name: goapp
